@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-qr-alumno',
   templateUrl: './qr-alumno.page.html',
   styleUrls: ['./qr-alumno.page.scss'],
 })
-export class QrAlumnoPage implements OnInit {
+export class QrAlumnoPage  {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private router: Router) {}
+  //Metodo que permite navergar como si fuera un HREF
+  navegar(){
+    this.router.navigate(['/home']);
   }
+
+  
 
 }
