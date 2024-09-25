@@ -1,19 +1,22 @@
 #profesor-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 100%;
     padding: 20px;
   }
   
   ion-item {
-    width: 100%;
-    max-width: 400px;  /* Limita el ancho para pantallas grandes */
-    margin-bottom: 15px;
+    --highlight-height: 3.5rem; /* Ajusta la altura del resaltado */
+    --min-height: 5rem;         /* Altura mínima de los inputs */
+    width: 40%;                /* Asegura que ocupe el ancho completo */
+    margin-bottom: 2rem;        /* Espacio entre inputs */
   }
   
   ion-input {
-    padding: 0;  /* Elimina el padding adicional que pueda causar problemas de alineación */
+    font-size: 1.2rem;         /* Aumenta el tamaño del texto */
+    --padding-start: 1rem;     /* Aumenta espacio a la izquierda */
+    --padding-end: 1rem;       /* Aumenta espacio a la derecha */
   }
   

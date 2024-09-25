@@ -1,20 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>alumno</ion-title>
+    <ion-title>Bienvenido Alumno</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-input label="Usuario" label-placement="floating" fill="outline" placeholder="Ingrese su Usuario"></ion-input>
-  </ion-item>
-  <br>
-  <ion-item>
-    <ion-input label="password" label-placement="floating" fill="outline" type="password" placeholder="Ingrese su Contrasenia">
-      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-    </ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-button size="large">Ingresar</ion-button>
-  </ion-item>
+  <div class="form-container">
+    <ion-item>
+      <ion-input label="Usuario" label-placement="floating" fill="outline" placeholder="Ingrese su Usuario"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Contraseña" label-placement="floating" fill="outline" type="password" placeholder="Ingrese su Contraseña">
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+    </ion-item>
+
+    <ion-button expand="block" size="large">Ingresar</ion-button>
+  </div>
 </ion-content>

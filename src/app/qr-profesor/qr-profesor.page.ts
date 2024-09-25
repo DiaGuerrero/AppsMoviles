@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class QrProfesorPage implements OnInit {
   curso: string | null = null;
+  alumnosAsistentes: { nombre: string }[] = [];
 
   constructor(private route: ActivatedRoute) { }
 
@@ -16,5 +17,14 @@ export class QrProfesorPage implements OnInit {
       this.curso = params['curso'];
       console.log('Curso seleccionado:', this.curso);
     });
+
+    this.alumnosAsistentes = [
+      { nombre: 'Jeremy Pérez' },
+      { nombre: 'Rosa Melano' },
+      { nombre: 'Elbert Galarga' },
+      { nombre: 'María Humpajote' },
+      { nombre: 'Jonny Melabo' },
+      { nombre: 'Xansho Kuliao' }
+    ];
   }
 }

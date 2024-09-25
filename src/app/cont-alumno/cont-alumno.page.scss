@@ -1,0 +1,20 @@
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .qr-container ion-icon {
+    font-size: 80px;
+    color: #3880ff; /* Color azul predeterminado de Ionic */
+    margin-bottom: 20px;
+  }
+  
+  .qr-container h2 {
+    font-size: 20px;
+  }
+  
