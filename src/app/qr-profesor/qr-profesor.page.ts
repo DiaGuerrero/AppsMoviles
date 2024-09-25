@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-qr-profesor',
@@ -10,7 +10,11 @@ export class QrProfesorPage implements OnInit {
   curso: string | null = null;
   alumnosAsistentes: { nombre: string }[] = [];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
+  navegar(){
+    this.router.navigate(['/home']);
+  }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
