@@ -7,7 +7,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button size="large" (click)="navegarProfesor()">Profesor</ion-button>
-  <br>
-  <ion-button size="large" (click)="navegarAlumno()">Alumno</ion-button>
+  <div id="home-container">
+    <ion-button size="large" expand="block" (click)="navegarProfesor()">Profesor</ion-button>
+    <ion-button size="large" expand="block" (click)="navegarAlumno()">Alumno</ion-button>
+  </div>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-qr-profesor',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./qr-profesor.page.scss'],
 })
 export class QrProfesorPage implements OnInit {
+  curso: string | null = null;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.curso = params['curso'];
+      console.log('Curso seleccionado:', this.curso);
+    });
   }
-
 }

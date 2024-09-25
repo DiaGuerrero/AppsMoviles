@@ -1,0 +1,19 @@
+#profesor-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  ion-item {
+    width: 100%;
+    max-width: 400px;  /* Limita el ancho para pantallas grandes */
+    margin-bottom: 15px;
+  }
+  
+  ion-input {
+    padding: 0;  /* Elimina el padding adicional que pueda causar problemas de alineación */
+  }
+  
