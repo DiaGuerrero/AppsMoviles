@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar> 
+   <ion-title>login</ion-title> 
+  </ion-toolbar> 
+ </ion-header> 
+ 
+ <ion-content [fullscreen]="true" class="login-content"> 
+  <ion-item> 
+   <!-- <ion-input label="Default input" [(ngModel)]="user.apellido"></ion-input> --> 
+  </ion-item> 
+ 
+  <div class="centered-container"> 
+   <img src="assets/img_login.png" alt="Login Image" class="login-image"> 
+  </div> 
+ 
+  <form [formGroup]="usuario"> 
+   <ion-item> 
+    <ion-input label="User" labelPlacement="floating" placeholder="User" formControlName="user"></ion-input> 
+   </ion-item>  
+ 
+   <ion-item> 
+    <ion-input label="Pass" type="password" labelPlacement="floating" placeholder="Pass" formControlName="pass">
+      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+    </ion-input> 
+   </ion-item>   
+ 
+   <!-- <ion-button expand="block" color="success" [disabled]="!usuario.valid" [routerLink]="['/homaalumno']" fill="outline">Ingresar</ion-button> --> 
+   <ion-button expand="block" color="success" (click)="navegarExtras()" fill="outline">Ingresar</ion-button> 
+   <!-- <ion-button expand="block" color="success" [routerLink]="['/home']" fill="outline">Nav RouiterLink</ion-button> --> 
+  </form> 
+ 
+  <!-- <ion-card #card> 
+   <ion-card-content>Card</ion-card-content> 
+  </ion-card> 
+  <ion-button (click)="play()">Play</ion-button> -->
+ 
+ </ion-content>
