@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
 export class ContAlumnoPage implements OnInit {
 
   constructor(private router: Router) { }
+  //Metodo que permite navergar como si fuera un HREF
   navegar(){
-    this.router.navigate(['/qr-alumno']);
+    this.router.navigate(['/login']);
   }
+
   ngOnInit() {
   }
 

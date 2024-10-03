@@ -18,8 +18,13 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'cont-alumno',
-    loadChildren: () => import('./cont-alumno/cont-alumno.module').then( m => m.ContAlumnoPageModule),
+    path: 'alumno',
+    loadChildren: () => import('./alumno/alumno.module').then( m => m.AlumnoPageModule),
+    canActivate: [guardGuard]
+  },
+  {
+    path: 'profesor',
+    loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule),
     canActivate: [guardGuard]
   },
   {
@@ -28,13 +33,8 @@ const routes: Routes = [
     canActivate: [guardGuard]
   },
   {
-    path: 'qr-alumno',
-    loadChildren: () => import('./qr-alumno/qr-alumno.module').then( m => m.QrAlumnoPageModule),
-    canActivate: [guardGuard]
-  },
-  {
-    path: 'qr-profesor',
-    loadChildren: () => import('./qr-profesor/qr-profesor.module').then( m => m.QrProfesorPageModule),
+    path: 'cont-alumno',
+    loadChildren: () => import('./cont-alumno/cont-alumno.module').then( m => m.ContAlumnoPageModule),
     canActivate: [guardGuard]
   },
   {

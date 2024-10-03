@@ -61,11 +61,11 @@ export class LoginPage implements OnInit {
       if(this.usuario.value.user === this.usuarioProfesor && this.usuario.value.pass === this.passProfesor){
         // cambia el estado del authService...
         this.authService.login();
-        this.router.navigate(['/cont-profesor'],setData);
+        this.router.navigate(['/profesor'],setData);
       }else if(this.usuario.value.user === this.usuarioAlumno && this.usuario.value.pass === this.passAlumno){
         // cambia el estado del authService
         this.authService.login();
-        this.router.navigate(['/cont-alumno'],setData);
+        this.router.navigate(['/alumno'],setData);
       }
         else{
           this.presentAlert("Error Login", "Usuario")

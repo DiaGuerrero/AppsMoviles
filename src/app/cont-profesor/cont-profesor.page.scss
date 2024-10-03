@@ -1,22 +1,24 @@
 ion-header {
-    --background: #3880ff; // Cambia el color del encabezado
+    background-color: #f8f8f8; // Cambia el color de fondo si lo deseas
   }
   
   ion-content {
-    --background: #665c5c; // Color de fondo del contenido
-    padding: 16px; // Espaciado interno
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px; // Ajusta el padding según sea necesario
   
-    ion-list {
-      margin-top: 16px; // Espaciado superior de la lista
+    h2 {
+      font-size: 20px; // Ajusta el tamaño de la fuente del título
+      margin-bottom: 20px; // Espaciado inferior
+    }
+  
+    img {
+      width: 200px; // Tamaño de la imagen
+      height: auto; // Mantiene la proporción
+      border-radius: 10px; // Bordes redondeados (opcional)
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Sombra (opcional)
     }
   }
-  
-  h2 {
-    font-size: 18px; // Tamaño del título del curso
-    margin: 0; // Sin margen
-  }
-  
-  p {
-    color: #666; // Color del texto del profesor
-  }
-  

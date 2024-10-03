@@ -1,0 +1,22 @@
+ion-header {
+    --background: #3880ff; // Cambia el color del encabezado
+  }
+  
+  ion-content {
+    --background: #665c5c; // Color de fondo del contenido
+    padding: 16px; // Espaciado interno
+  
+    ion-list {
+      margin-top: 16px; // Espaciado superior de la lista
+    }
+  }
+  
+  h2 {
+    font-size: 18px; // Tamaño del título del curso
+    margin: 0; // Sin margen
+  }
+  
+  p {
+    color: #666; // Color del texto del profesor
+  }
+  

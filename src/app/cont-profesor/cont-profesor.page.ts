@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cont-profesor',
@@ -7,25 +7,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./cont-profesor.page.scss'],
 })
 export class ContProfesorPage implements OnInit {
-  cursos = [
-    { nombre: 'Aplicaciones Móviles', profesor: 'Jhon Salchishon' }, 
-    { nombre: 'Robotica', profesor: 'Jhon Salchishon' }, 
-    { nombre: 'Base de Datos', profesor: 'Jhon Salchishon' }, 
-    { nombre: 'Programacion de Base de Datos', profesor: 'Jhon Salchishon' }, 
-    { nombre: 'Arquitectura', profesor: 'Jhon Salchishon' }, 
-    { nombre: 'Iniciacion Machine Learning', profesor: 'Jhon Salchishon' }, 
-    { nombre: 'Ingles', profesor: 'Jhon Salchishon' }, 
-    { nombre: 'Proceso de Portafolio', profesor: 'Jhon Salchishon' },
-  ];
+  curso: string | null = null;
+  alumnosAsistentes: { nombre: string }[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
-  ngOnInit() {}
+  navegar(){
+    this.router.navigate(['/login']);
+  }
 
-  verDetallesCurso(curso: any) {
-    // Navega a la página de QR del profesor
-    this.router.navigate(['/qr-profesor'], {
-      queryParams: { curso: curso.nombre }
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.curso = params['curso'];
+      console.log('Curso seleccionado:', this.curso);
     });
+
+    this.alumnosAsistentes = [
+      { nombre: 'Jeremy Pérez' },
+      { nombre: 'Rosa Melano' },
+      { nombre: 'Elbert Galarga' },
+      { nombre: 'María Humpajote' },
+      { nombre: 'Jonny Melabo' },
+      { nombre: 'Xansho Kuliao' }
+    ];
   }
 }
