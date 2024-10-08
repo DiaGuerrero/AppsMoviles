@@ -19,10 +19,10 @@ export class LoginPage implements OnInit {
 
   async presentAlert(p0: string, error: any) {
     const alert = await this.alertController.create({
-      header: 'A Short Title Is Best',
-      subHeader: 'A Sub Header Is Optional',
-      message: 'A message should be a short, complete sentence.',
-      buttons: ['Action'],
+      header: 'Datos Incorrectos',
+      subHeader: '',
+      message: 'Usuario y/o Contrasenia Incorrectos',
+      buttons: ['OK'],
     });
 
     await alert.present();
