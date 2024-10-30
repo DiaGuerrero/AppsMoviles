@@ -61,7 +61,7 @@ export class LoginPage implements OnInit {
       if(this.usuario.value.user === this.usuarioProfesor && this.usuario.value.pass === this.passProfesor){
         // cambia el estado del authService...
         this.authService.login();
-        this.router.navigate(['/profesor'],setData);
+        this.router.navigate(['/home'],setData);
       }else if(this.usuario.value.user === this.usuarioAlumno && this.usuario.value.pass === this.passAlumno){
         // cambia el estado del authService
         this.authService.login();

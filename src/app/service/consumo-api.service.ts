@@ -15,13 +15,13 @@ export class ConsumoApiService {
     })
   }
 
-  apiURL = 'https://jsonplaceholder.typicode.com';
+  apiURL = 'http://127.0.0.1:5000';
 
   constructor(private http: HttpClient) { }
 
 
   getPosts():Observable<any>{
-    return this.http.get(this.apiURL+'/posts').pipe(
+    return this.http.get(this.apiURL+'/profesores').pipe(
       retry(3)
     );
   }

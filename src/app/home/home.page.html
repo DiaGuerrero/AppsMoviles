@@ -1,14 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Bienvenido
-    </ion-title>
+    <ion-title>Bienvenido</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div id="home-container">
-    <ion-button size="large" expand="block" (click)="navegarProfesor()">Profesor</ion-button>
-    <ion-button size="large" expand="block" (click)="navegarAlumno()">Alumno</ion-button>
+    <ion-card class="ion-text-center">
+      <ion-card-header>
+        <ion-card-subtitle>Usuario:{{userHome}}</ion-card-subtitle>
+        <ion-card-subtitle>Eres Bienvenido</ion-card-subtitle>
+        <ion-card-subtitle>{{titulo}}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+    <ion-button size="large" expand="block" (click)="obtenerData()">Consumir API</ion-button>
   </div>
 </ion-content>
