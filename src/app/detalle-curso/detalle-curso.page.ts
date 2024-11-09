@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ConsumoApiService } from '../service/consumo-api.service';
 import * as qrcode from 'qrcode-generator';
 
 @Component({
@@ -9,20 +10,16 @@ import * as qrcode from 'qrcode-generator';
 })
 export class DetalleCursoPage implements OnInit {
   
-  nombreCurso = "";
-  idCurso = "";
-  codigoCurso = "";
-  seccionCurso = "";
+  idCurso : string = ""
+  nombreCurso : string = ""
+  codigoCurso : string = ""
+  seccionCurso : string = ""
+  qrDataURL : string = ""
 
-  alumnos = [
-    {rut:"1-1", nombre:"Juan Pablo", estado:"Presente"},
-    {rut:"1-2", nombre:"Gianna Pinzon", estado:"Presente"},
-    {rut:"1-3", nombre:"Diana Guerrero", estado:"Presente"},
-    {rut:"1-4", nombre:"Jeremy Perez", estado:"Presente"}
-  ];
-  qrDataURL: string | undefined;
+  alumnos : any[] = [];
+  
 
-  constructor(private activateroute: ActivatedRoute, private router: Router) { 
+  constructor(private consumoApi: ConsumoApiService, private activateroute: ActivatedRoute, private router: Router) { 
     this.activateroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.nombreCurso = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
@@ -33,10 +30,16 @@ export class DetalleCursoPage implements OnInit {
     });
   }
 
+  mostrarAlumnos(){
+    this.consumoApi.obtenerAlumnosPorCursoPorProfesor(1,1).subscribe((respuesta)=> {
+      this.alumnos = respuesta;
+    })
+  }
+
   generateQRCode(){
     if(this.idCurso) {
       const fechaActual = new Date().toISOString().split('T')[0]; //Fecha en formato YYYY-MM-DD
-      const data = `${this.codigoCurso} ${this.seccionCurso} ${fechaActual}`;
+      const data = `${this.codigoCurso}-${this.seccionCurso}-${fechaActual}`;
 
       let qr = qrcode(4, 'L');
       qr.addData(data);
@@ -47,6 +50,8 @@ export class DetalleCursoPage implements OnInit {
   }
 
   ngOnInit() {
+    this.generateQRCode();
+    this.mostrarAlumnos();
   }
 
 }

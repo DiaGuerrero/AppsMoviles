@@ -15,14 +15,18 @@ export class ConsumoApiService {
     })
   }
 
-  apiURL = 'https://jsonplaceholder.typicode.com';
+  //apiURL = 'https://jsonplaceholder.typicode.com';
+  apiURL : string = 'http://localhost:5000/';
 
   constructor(private httpClient: HttpClient) { }
 
-
-  getPosts():Observable<any>{
-    return this.httpClient.get(this.apiURL+'/posts').pipe(
-      retry(3)
-    );
+  public obtenerCursosPorProfesor(profesorId : number): Observable<any>{
+    return this.httpClient.get(this.apiURL + 'profesores/' + profesorId + '/cursos', this.httpOptions)
   }
+
+  // '/profesores/<int:profesor_id>/cursos/<int:curso_id>/alumnos'
+  public obtenerAlumnosPorCursoPorProfesor(profesorId : number, cursoId : number): Observable<any>{
+    return this.httpClient.get(this.apiURL + 'profesores/' + profesorId + '/cursos/' + cursoId + '/alumnos', this.httpOptions)
+  }
+  
 }

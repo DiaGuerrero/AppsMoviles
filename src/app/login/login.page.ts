@@ -38,10 +38,10 @@ export class LoginPage implements OnInit {
       user: this.usuario.value.pass  
      }  
     };
-      const loginMap: { [key: string]: string} = {
+      /* const loginMap: { [key: string]: string} = {
         'profesor:1234': '/home',
         'estudiante:1234': '/alumno'
-      };
+      }; */
     try{
 
       /* const userPassKey = `${this.usuario.value.user}:${this.usuario.value.pass}`;

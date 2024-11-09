@@ -16,19 +16,9 @@ export class HomePage implements OnInit {
   user = "";
   fecha = this.now.toLocaleString();
 
-  //Crear un listado de cursos
-  cursos = [
-    {id: 1,nombre: 'POO', codigo: 'APY6565', seccion: '017V'},
-    {id: 2,nombre: 'APP', codigo: 'PGY6464', seccion: '018V'},
-    {id: 3,nombre: 'CALIDAD', codigo: 'CSY6565', seccion: '019V'}
-  ]
+  //Crear un listado de cursos(un arreglo vacio)
+  cursos : any[] = [];
 
-  nombre: string | undefined;
-  userHome: any;
-  titulo: string = "";
-  tituloUno: any
-  value = 'dcares';
-  message: any;
 
   constructor(private activateroute: ActivatedRoute, private consumoApi: ConsumoApiService, private router: Router) {
     this.activateroute.queryParams.subscribe(params => {
@@ -39,10 +29,10 @@ export class HomePage implements OnInit {
     });
   }
 
-  // Crear metodo para consumir el servive
+  // Crear metodo para consumir el service
   getPostServices() {
-    this.consumoApi.getPosts().subscribe((res)=> {
-      this.testVariable = res[65].title;
+    this.consumoApi.obtenerCursosPorProfesor(1).subscribe((respuesta)=> {
+      this.cursos = respuesta;
     })
   }
   
@@ -68,11 +58,5 @@ export class HomePage implements OnInit {
     this.getPostServices();
   }
   
-  // Metodo para Mostrar
-  obtenerData(){
-    this.consumoApi.getPosts().subscribe((res)=>{
-      this.titulo = res;
-      console.log(res);
-    });
-  }
+  
 }
