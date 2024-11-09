@@ -17,27 +17,10 @@ export class LoginPage implements OnInit {
 
   constructor(private router: Router, private alertController: AlertController, private authService: AuthserviceService) { }
 
-  async presentAlert(p0: string, error: any) {
-    const alert = await this.alertController.create({
-      header: 'Datos Incorrectos',
-      subHeader: '',
-      message: 'Usuario y/o Contrasenia Incorrectos',
-      buttons: ['OK'],
-    });
-
-    await alert.present();
-  }
-
-
   //metodo que permite ir al home(en vez de routerLink que es como un HREF)
   navegar(){
     this.router.navigate(['/home']);
   }
-  usuarioProfesor = 'dcares';
-  passProfesor = '123456';
-
-  usuarioAlumno = 'jeremy';
-  passAlumno = '123456';
 
   usuario = new FormGroup({
 
@@ -47,7 +30,7 @@ export class LoginPage implements OnInit {
    });
   
    navegarExtras(){
-  
+    // la creacion del set de datos
     let setData: NavigationExtras = {
   
      state: {  
@@ -55,31 +38,50 @@ export class LoginPage implements OnInit {
       user: this.usuario.value.pass  
      }  
     };
-    
+      const loginMap: { [key: string]: string} = {
+        'profesor:1234': '/home',
+        'estudiante:1234': '/alumno'
+      };
     try{
 
-      if(this.usuario.value.user === this.usuarioProfesor && this.usuario.value.pass === this.passProfesor){
-        // cambia el estado del authService...
+      /* const userPassKey = `${this.usuario.value.user}:${this.usuario.value.pass}`;
+      if (loginMap[userPassKey]) {
+        this.router.navigate([loginMap[userPassKey]], setData);
+      } else {
+        this.presentAlert("Error Login", "Usuario y/o contraseña son incorrectos")
+      } */
+      
+      if(this.usuario.value.user == "profesor" && this.usuario.value.pass == "1234"){
+        //cambia el estado del authservice...
         this.authService.login();
-        this.router.navigate(['/home'],setData);
-      }else if(this.usuario.value.user === this.usuarioAlumno && this.usuario.value.pass === this.passAlumno){
-        // cambia el estado del authService
+        this.router.navigate(['/home'], setData);
+      } else if(this.usuario.value.user == "estudiante" && this.usuario.value.pass == "1234"){
+        //cambia el estado del authservice...
         this.authService.login();
-        this.router.navigate(['/alumno'],setData);
+        this.router.navigate(['/alumno'], setData);
+      } else {
+        this.presentAlert("Error Login", "Usuario y/o contraseña son incorrectos");
       }
-        else{
-          this.presentAlert("Error Login", "Usuario")
-      }
+
     } catch(error:any){
       this.presentAlert("Error Login", error)
     }
-    
   
    }
 
-   
+   async presentAlert(titulo: string, mensaje: any) {
+    const alert = await this.alertController.create({
+      header: 'Info Login',
+      subHeader: titulo,
+      message: mensaje,
+      buttons: ['OK'],
+    });
 
-  ngOnInit() {
+    await alert.present();
+  } 
+
+  ngOnInit() : void {
+    //this.navegar()
   }
 
 }

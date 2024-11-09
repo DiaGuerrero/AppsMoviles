@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>detalleCurso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="qr-container text-center">
+    <img [src]="qrDataURL" *ngIf="qrDataURL" class="qr-image">
+    <div class="curso-info">
+      <p>{{ nombreCurso }}</p>
+      <p>ID Curso : {{ idCurso }}</p>
+    </div>
+  </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nombre Curso : {{ nombreCurso }}</ion-card-title>
+      <ion-card-title>ID Curso : {{ idCurso }}</ion-card-title>
+      <ion-card-title>Codigo Curso : {{ codigoCurso }}</ion-card-title>
+      <ion-card-title>Seccion Curso : {{ seccionCurso }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor = "let alumno of alumnos">
+      <ion-label>
+        <h5>Rut : {{ alumno.rut }}</h5>
+        <h5>Nombre : {{ alumno.nombre }}</h5>
+        <h5>Estado : {{ alumno.estado }}</h5>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

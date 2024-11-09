@@ -5,7 +5,8 @@ import { guardGuard } from './guard/guard.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule) 
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [guardGuard] 
   },
   {
     path: '',
@@ -29,17 +30,24 @@ const routes: Routes = [
   {
     path: 'cont-profesor',
     loadChildren: () => import('./cont-profesor/cont-profesor.module').then( m => m.ContProfesorPageModule),
-    canActivate: [guardGuard]
+    //canActivate: [guardGuard]
   },
   {
     path: 'cont-alumno',
     loadChildren: () => import('./cont-alumno/cont-alumno.module').then( m => m.ContAlumnoPageModule),
+    //canActivate: [guardGuard]
+  },
+  {
+    path: 'detalle-curso',
+    loadChildren: () => import('./detalle-curso/detalle-curso.module').then( m => m.DetalleCursoPageModule),
     canActivate: [guardGuard]
   },
   {
     path: '**', // se agrega el doble * para que consulte todas las rutas, si no coincide vuelve al page
     loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
   },
+
+
 ];
 
 @NgModule({

@@ -1,18 +1,36 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Bienvenido</ion-title>
+    <ion-title>Home Profesor</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="home-container">
-    <ion-card class="ion-text-center">
-      <ion-card-header>
-        <ion-card-subtitle>Usuario:{{userHome}}</ion-card-subtitle>
-        <ion-card-subtitle>Eres Bienvenido</ion-card-subtitle>
-        <ion-card-subtitle>{{titulo}}</ion-card-subtitle>
-      </ion-card-header>
-    </ion-card>
-    <ion-button size="large" expand="block" (click)="obtenerData()">Consumir API</ion-button>
-  </div>
+  <ion-card class="ion-text-center">
+    <ion-card-header>
+      <ion-card-subtitle>Bienvenido: {{ user }}</ion-card-subtitle>
+      <ion-card-subtitle>Fecha : {{ fecha }}</ion-card-subtitle>
+      <ion-card-subtitle>{{titulo}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      Este es el listado de sus cursos :
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor = "let curso of cursos">
+      <ion-label>
+        <h2>Nombre : {{ curso.nombre }}</h2>
+        <h3>ID : {{ curso.id }}</h3>
+        <h3>Codigo : {{ curso.codigo }}</h3>
+        <h3>Seccion : {{ curso.seccion }}</h3>
+      </ion-label>
+      <ion-button fill="outline" slot="end" (click)="verDetalle(curso.nombre,curso.id,curso.codigo,curso.seccion)">
+        ver detalle
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  
 </ion-content>
