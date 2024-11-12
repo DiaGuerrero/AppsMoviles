@@ -30,8 +30,9 @@ export class DetalleCursoPage implements OnInit {
     });
   }
 
+
   mostrarAlumnos(){
-    this.consumoApi.obtenerAlumnosPorCursoPorProfesor(1,1).subscribe((respuesta)=> {
+    this.consumoApi.obtenerAlumnosPorCursoPorProfesor(1,2).subscribe((respuesta)=> {
       this.alumnos = respuesta;
     })
   }

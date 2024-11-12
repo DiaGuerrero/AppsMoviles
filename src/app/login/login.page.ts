@@ -51,11 +51,11 @@ export class LoginPage implements OnInit {
         this.presentAlert("Error Login", "Usuario y/o contraseña son incorrectos")
       } */
       
-      if(this.usuario.value.user == "profesor" && this.usuario.value.pass == "1234"){
+      if(this.usuario.value.user == "docente@gmail.com" && this.usuario.value.pass == "password1"){
         //cambia el estado del authservice...
         this.authService.login();
         this.router.navigate(['/home'], setData);
-      } else if(this.usuario.value.user == "estudiante" && this.usuario.value.pass == "1234"){
+      } else if(this.usuario.value.user == "alumno@gmail.com" && this.usuario.value.pass == "password2"){
         //cambia el estado del authservice...
         this.authService.login();
         this.router.navigate(['/alumno'], setData);
