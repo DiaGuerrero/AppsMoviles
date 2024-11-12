@@ -1,16 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>detalleCurso</ion-title>
+    <ion-title>Detalle Curso</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="qr-container text-center">
+  <div class="qr-container">
     <img [src]="qrDataURL" *ngIf="qrDataURL" class="qr-image">
-    <div class="curso-info">
-      <p>{{ nombreCurso }}</p>
-      <p>ID Curso : {{ idCurso }}</p>
-    </div>
   </div>
   <ion-card>
     <ion-card-header>

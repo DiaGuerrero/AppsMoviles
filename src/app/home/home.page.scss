@@ -7,8 +7,38 @@
   padding: 20px;
 }
 
-ion-button {
-  margin: 10px 0;
-  width: 100%;  /* Ocupa todo el ancho del contenedor */
-  max-width: 300px;  /* Limita el ancho para pantallas grandes */
+ion-title {
+  font-family: 'Allura', 'Dancing Script', sans-serif; /* Aplica la fuente personalizada */
+  font-size: 2em; /* Ajusta el tamaño si es necesario */
+  text-align: center;
+  color: #0e273b;
+}
+ion-list {
+  ion-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    color: #0e273b;
+
+
+    ion-label {
+      h2, h3 {
+        margin: 0;
+        line-height: 1.4;
+      }
+    }
+
+    ion-button {
+      min-width: auto;
+      font-size: 14px;
+      padding: 5px 10px;
+      white-space: nowrap;
+      color: #fab427; /* Color del texto */
+      --border-color: #fab427; /* Color del borde */
+      --background: transparent; /* Fondo transparente si es outline */
+      --fill: outline; /* Asegura que el botón sea outline */
+    }
+    
+  }
 }

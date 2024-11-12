@@ -14,12 +14,27 @@
     height: 50vh; /* Reducir la altura del contenedor */ 
 } 
 
-.login-image {  
-    max-width: 50%;  
-    max-height: 50%; /* Añadir máximo alto */  
-    width: auto;  
-    height: auto;  
-}
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .login-image {
+    width: 350px; /* Ajusta el tamaño según lo necesites */
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .welcome-text {
+    font-size: 2.0em;
+    color: #fab427; /* Cambia este color según prefieras */
+    text-align: center;
+    font-family: 'Dancing Script',sans-serif; /* Cambia la fuente si lo deseas */
+    margin-bottom: 20px;
+  }
+  
 
 .input-container {  
     text-align: center;  
@@ -34,4 +49,17 @@
     padding-bottom: 2em; /* Agregar espacio en la parte inferior */  
 }
 
-   
+ion-title {
+    font-family: 'Allura', 'Dancing Script', sans-serif; /* Aplica la fuente personalizada */
+    font-size: 2em; /* Ajusta el tamaño si es necesario */
+    text-align: center;
+    color: #0e273b;
+  }
+ /* .login-button {
+    font-weight: bold; // Aumenta el grosor del texto
+    font-size: 1.1em; // Ajusta el tamaño del texto
+    padding: 0.8em 1.2em; // Espaciado interno para hacer el botón más grande
+  
+    max-width: 200px;
+    margin: auto;
+  }*/

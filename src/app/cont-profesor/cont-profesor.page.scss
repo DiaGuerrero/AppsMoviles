@@ -22,3 +22,9 @@ ion-header {
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Sombra (opcional)
     }
   }
+  ion-title {
+    font-family: 'Allura', 'Dancing Script', sans-serif; /* Aplica la fuente personalizada */
+    font-size: 2em; /* Ajusta el tamaño si es necesario */
+    text-align: center;
+    color: #0e273b;
+  }
