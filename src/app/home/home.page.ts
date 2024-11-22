@@ -23,7 +23,7 @@ export class HomePage implements OnInit {
   constructor(private activateroute: ActivatedRoute, private consumoApi: ConsumoApiService, private router: Router) {
     this.activateroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
-        this.user = this.router.getCurrentNavigation()?.extras.state?.['id'];
+        this.user = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
         console.log(this.router.getCurrentNavigation()?.extras.state?.['pass']);
       }
     });
@@ -31,7 +31,7 @@ export class HomePage implements OnInit {
 
   // Crear metodo para consumir el service
   getPostServices() {
-    this.consumoApi.obtenerCursosPorProfesor(1).subscribe((respuesta)=> {
+    this.consumoApi.obtenerCursosProfesor(1).subscribe((respuesta)=> {
       this.cursos = respuesta;
     })
   }
