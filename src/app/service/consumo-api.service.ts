@@ -41,29 +41,5 @@ export class ConsumoApiService {
   registrarAsistencia(alumnoId: number, codigo: string, seccion: string, fecha: string): Observable<any> {
     return this.httpClient.post(`${this.apiURL}/registrar_asistencia`, {alumnoId, codigo, seccion, fecha}, this.httpOptions)
   }
-
-
-  //---------------->Metodos Propios<----------------
-
-  // '/profesores/<int:profesor_id>/cursos/<int:curso_id>/alumnos'
-  public obtenerAlumnosPorCursoPorProfesor(profesorId : number, cursoId : number): Observable<any>{
-    return this.httpClient.get(this.apiURL + 'profesores/' + profesorId + '/cursos/' + cursoId + '/alumnos', this.httpOptions)
-  }
-
-  getCursos(id_profe : string): Observable<any>{
-    const url = `${this.apiURL}/profesores/${id_profe}/cursos`;
-    return this.httpClient.get(url, this.httpOptions)
-  }
-
-  // guardamos los datos de los cursos
-  setCursoData(data:any):void
-  {
-    this.cursoData = data;
-  }
-  // obtenemos los datos de los cursos
-  getCursoData():any
-  {
-    return this.cursoData;
-  }
   
 }

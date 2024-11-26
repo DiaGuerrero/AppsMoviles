@@ -96,7 +96,7 @@ export class LoginPage implements OnInit {
       } */
 
   ngOnInit() : void {
-    //this.navegar()
+    this.navegar()
   }
 
 }

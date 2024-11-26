@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
-import { FormControl,FormGroup,Validator, Validators } from '@angular/forms';
 import { ConsumoApiService } from '../service/consumo-api.service';// import del servicio consumoAPI que generamos
 
 @Component({
@@ -19,21 +18,32 @@ export class HomePage implements OnInit {
   //Crear un listado de cursos(un arreglo vacio)
   cursos : any[] = [];
 
+  // Id del profesor Dinamico
+  profesorId: number | null = null;
 
-  constructor(private activateroute: ActivatedRoute, private consumoApi: ConsumoApiService, private router: Router) {
+
+  constructor(
+    private activateroute: ActivatedRoute, 
+    private consumoApi: ConsumoApiService, 
+    private router: Router) {
     this.activateroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.user = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
-        console.log(this.router.getCurrentNavigation()?.extras.state?.['pass']);
+        this.profesorId = this.router.getCurrentNavigation()?.extras.state?.['id'];
       }
     });
   }
 
   // Crear metodo para consumir el service
-  getPostServices() {
-    this.consumoApi.obtenerCursosProfesor(1).subscribe((respuesta)=> {
+  getPostServices(profesorId: number) {
+    this.consumoApi.obtenerCursosProfesor(profesorId).subscribe(
+      (respuesta) => {
       this.cursos = respuesta;
-    })
+    },
+      (error) => {
+        console.error('Error al obtener cursos: ', error)
+      }
+    )
   }
   
   verDetalle(nombreCurso: string, idCurso: number, codigoCurso: string, seccionCurso: string) {
@@ -55,8 +65,11 @@ export class HomePage implements OnInit {
   }
   
   ngOnInit(): void {
-    this.getPostServices();
+    if (this.profesorId) {
+      // Llamar al servicio solo si el ID del profesor esta disponible
+      this.getPostServices(this.profesorId); 
+    } else{
+      console.error('ID del profesor no disponible');
+    }
   }
-  
-  
 }

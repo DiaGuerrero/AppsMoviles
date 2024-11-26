@@ -26,15 +26,32 @@ export class DetalleCursoPage implements OnInit {
         this.idCurso = this.router.getCurrentNavigation()?.extras.state?.['id'];
         this.codigoCurso = this.router.getCurrentNavigation()?.extras.state?.['codigo'];
         this.seccionCurso = this.router.getCurrentNavigation()?.extras.state?.['seccion'];
+
+        console.log('ID Curso:', this.idCurso);
+        console.log('ID Profesor:', 1); // Cambia el valor del profesor según sea necesario
       }
     });
   }
 
 
   mostrarAlumnos(){
-    this.consumoApi.obtenerAlumnosPorCursoPorProfesor(1,2).subscribe((respuesta)=> {
-      this.alumnos = respuesta;
-    })
+
+    const profesorId = 1;
+    const cursoId = Number(this.idCurso);
+
+    if (profesorId && cursoId) {
+      this.consumoApi.obtenerAlumnosCurso(profesorId, cursoId).subscribe(
+        (respuesta) => {
+        this.alumnos = respuesta;
+        },
+        (error) => {
+          console.error('Error al obtener alumnos: ', error);
+        }
+      );
+    }
+    
+
+    
   }
 
   generateQRCode(){
@@ -52,7 +69,6 @@ export class DetalleCursoPage implements OnInit {
 
   ngOnInit() {
     this.generateQRCode();
-    this.mostrarAlumnos();
   }
 
 }
