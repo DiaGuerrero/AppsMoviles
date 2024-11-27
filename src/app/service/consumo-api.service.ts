@@ -41,5 +41,11 @@ export class ConsumoApiService {
   registrarAsistencia(alumnoId: number, codigo: string, seccion: string, fecha: string): Observable<any> {
     return this.httpClient.post(`${this.apiURL}/registrar_asistencia`, {alumnoId, codigo, seccion, fecha}, this.httpOptions)
   }
+
+  // ----------------->Metodos Profe Diego <---------------
+
+  public obtenerAlumnosCursoPorProfesor(profesorId: number, cursoId: number): Observable<any> {
+    return this.httpClient.get(this.apiURL + 'profesores/' + profesorId + '/cursos' + cursoId + '/alumnos', this.httpOptions)
+  }
   
 }
