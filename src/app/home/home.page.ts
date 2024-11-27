@@ -10,8 +10,6 @@ import { ConsumoApiService } from '../service/consumo-api.service';// import del
 export class HomePage implements OnInit {
 
   now = new Date();
-
-  testVariable: string = "";
   user = "";
   fecha = this.now.toLocaleString();
 
@@ -52,7 +50,8 @@ export class HomePage implements OnInit {
         nombre: nombreCurso,
         id: idCurso,
         codigo: codigoCurso,
-        seccion: seccionCurso
+        seccion: seccionCurso,
+        idProfesor: this.profesorId
       }
     };
 

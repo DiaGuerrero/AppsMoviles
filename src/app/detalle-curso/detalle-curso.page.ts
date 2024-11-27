@@ -10,7 +10,8 @@ import * as qrcode from 'qrcode-generator';
 })
 export class DetalleCursoPage implements OnInit {
   
-  idCurso : string = ""
+  idProfesor: number = 0
+  idCurso : number = 0
   nombreCurso : string = ""
   codigoCurso : string = ""
   seccionCurso : string = ""
@@ -26,32 +27,24 @@ export class DetalleCursoPage implements OnInit {
         this.idCurso = this.router.getCurrentNavigation()?.extras.state?.['id'];
         this.codigoCurso = this.router.getCurrentNavigation()?.extras.state?.['codigo'];
         this.seccionCurso = this.router.getCurrentNavigation()?.extras.state?.['seccion'];
+        this.idProfesor = this.router.getCurrentNavigation()?.extras.state?.['idProfesor'];
 
         console.log('ID Curso:', this.idCurso);
-        console.log('ID Profesor:', 1); // Cambia el valor del profesor según sea necesario
+        console.log('ID Profesor:', this.idProfesor); // Cambia el valor del profesor según sea necesario
       }
     });
   }
 
 
-  mostrarAlumnos(){
-
-    const profesorId = 1;
-    const cursoId = Number(this.idCurso);
-
-    if (profesorId && cursoId) {
-      this.consumoApi.obtenerAlumnosCurso(profesorId, cursoId).subscribe(
-        (respuesta) => {
+  mostrarAlumnos(profesorId: number, cursoId: number){
+    this.consumoApi.obtenerAlumnosCurso(profesorId, cursoId).subscribe(
+      (respuesta) => {
         this.alumnos = respuesta;
-        },
-        (error) => {
-          console.error('Error al obtener alumnos: ', error);
-        }
-      );
-    }
-    
-
-    
+      },
+      (error) => {
+        console.error('Error al obtener alumnos: ', error)
+      }
+    );
   }
 
   generateQRCode(){
@@ -68,6 +61,7 @@ export class DetalleCursoPage implements OnInit {
   }
 
   ngOnInit() {
+    this.mostrarAlumnos(this.idProfesor, this.idCurso);
     this.generateQRCode();
   }
 
