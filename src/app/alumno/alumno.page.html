@@ -8,6 +8,12 @@
   <div class="qr-container">
     <ion-icon name="camera" size="large"></ion-icon>
     <h2>Apunta la cámara para escanear el QR</h2>
+    <div>
+      <ion-button expand="full" type="submit">Limpiar</ion-button>
+    </div>
+    <div>
+      <ion-button expand="full" type="submit" (click) = "camara()">Camara</ion-button>
+    </div>
     <ion-button expand="block" size="large" (click)="navegar()">Tomar Foto</ion-button>
   </div>
 </ion-content>
